@@ -16,6 +16,42 @@ function setValues(v = 1) {
 
 setValues();
 
+// menu toggle
+const menu = document.querySelector('.menu');
+const menuToggle = document.getElementById('menu-toggle');
+if (menu && menuToggle) {
+    menu.classList.add('closed');
+    menu.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+
+    function openMenu() {
+        menu.classList.remove('closed');
+        menu.classList.add('open');
+        menuToggle.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeMenu() {
+        menu.classList.remove('open');
+        menu.classList.add('closed');
+        menuToggle.setAttribute('aria-expanded', 'false');
+    }
+
+    menuToggle.addEventListener('click', e => {
+        e.preventDefault();
+        if (menu.classList.contains('open')) closeMenu(); else openMenu();
+    });
+
+    document.addEventListener('click', e => {
+        if (!menu.classList.contains('open')) return;
+        if (menu.contains(e.target) || menuToggle.contains(e.target)) return;
+        closeMenu();
+    });
+
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeMenu();
+    });
+}
+
 function setColor(group, color) {
     document.querySelectorAll(`.${group}-light div`).forEach(el => {
         el.classList.remove('active');
