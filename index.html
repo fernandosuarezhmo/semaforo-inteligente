@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>Semáforo inteligente</title>
+    </head>
+    <body>
+        <div class="car-light">
+            <div class="light-frame">
+                <div class="red"></div>
+                <div class="yellow"></div>
+                <div class="green"></div>
+            </div>
+            <div class="pole"></div>
+        </div>
+        <div class="pedestrian-light">
+            <div class="light-frame">
+                <div class="red"></div>
+                <div class="green"></div>
+            </div>
+            <div class="pole"></div>
+        </div>
+        <div class="crossing-button">
+            <div class="light-frame">
+                <a href="#" id="button"></a>
+            </div>
+            <div class="pole"></div>
+        </div>
+        <div class="menu">
+            <div class="panel">
+                <div class="row">
+                    <label class="lbl">Tráfico</label>
+                    <input type="range" id="traffic" min="1" max="2" step="0.01"
+                        value="1">
+                </div>
+
+                <div class="row two">
+                    <div>
+                        <label class="lbl">Verde — Tiempo base (ms)</label>
+                        <input id="green-base" type="number" value="6000"
+                            step="100" min="0">
+                    </div>
+                    <div>
+                        <label class="lbl">Verde — Tiempo final (ms)</label>
+                        <input id="green-final" type="number" value="6000"
+                            readonly>
+                    </div>
+                </div>
+
+                <div class="row two">
+                    <div>
+                        <label class="lbl">
+                            Amarillo — Tiempo base (ms)
+                        </label>
+                        <input id="yellow-base" type="number" value="3000"
+                            step="100" min="0">
+                    </div>
+                    <div>
+                        <label class="lbl">
+                            Amarillo — Tiempo final (ms)
+                        </label>
+                        <input id="yellow-final" type="number" value="3000"
+                            readonly>
+                    </div>
+                </div>
+
+                <div class="row two">
+                    <div>
+                        <label class="lbl">
+                            Rojo/Peatón — Tiempo base (ms)
+                        </label>
+                        <input id="red-base" type="number" value="4000"
+                            step="100" min="0">
+                    </div>
+                    <div>
+                        <label class="lbl">
+                            Rojo/Peatón — Tiempo final (ms)
+                        </label>
+                        <input id="red-final" type="number" value="4000"
+                            readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="scripts.js"></script>
+    </body>
+</html>
